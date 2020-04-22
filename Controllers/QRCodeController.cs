@@ -9,7 +9,7 @@ using System.IO;
 
 namespace QRCodeAplicativo.Controllers
 {
-    public class QRCoderController : Controller
+    public class QRCodeController : Controller
     {
         public IActionResult Index()
             //Interface de codigo chamando o index()
@@ -25,7 +25,7 @@ namespace QRCodeAplicativo.Controllers
         {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             // estanciando/criando um novo objeto QRCodeGenerator
-            QRCodeData qRCodeData = qrGenerator.CreateQrCode(qrTexto, QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qRCodeData = qrGenerator.CreateQrCode(qrTexto,QRCodeGenerator.ECCLevel.Q);
             // manda para a biblioteca a string
             QRCode qRCode = new QRCode(qRCodeData);
             // estancia um novo objeto QRCode passando como pareametro o qRCodeData
