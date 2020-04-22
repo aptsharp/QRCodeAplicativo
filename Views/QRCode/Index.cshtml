@@ -1,0 +1,41 @@
+﻿@model Byte[]
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=devide-width" />
+    <title>Gerador de QRCode || ASP.NET Core</title>
+</head>
+    
+    <body>
+        <div class="container">
+            <div id="content">
+                <h2> Gerador de QRCode em ASP.NET CORE</h2>
+                <div id="viewContent">
+                    @using (Html.BeginForm(null, null, FormMethod.Post))
+                    {
+                        <table>
+                            <tbody>
+                                <tr><td>
+                                    <label>Informar o texto para gerar o QRCode: </label>
+                                </td>
+                                </tr>
+                                <tr><td colspan="2"><button>Enviar</button></td></tr>
+                            </tbody>
+                        </table>
+                    }
+                </div>
+                @{ 
+                    if (Model != null)
+                    {
+                        <h3> QRCode gerado com sucesso</h3>
+                        <img src="@String.Format("data:image/png;base64,{0}",
+                                 Convert.ToBase64String(Model))" />
+                    }
+                }
+            </div>
+        </div>
+    </body>
+    </html>
+
